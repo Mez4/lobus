@@ -1,0 +1,78 @@
+$azul:#3e6dae;
+$amarillo:#f9ec0f;
+$gris:#eee;
+$titulo:'Titillium Web', sans-serif;
+$cuerpo:'Roboto', sans-serif;
+//reseteos generales
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background: #fff;
+  max-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: $cuerpo;
+  font-weight: 300;
+  overflow-x: hidden;
+  color: #333;
+}
+main{
+  width: 100%;
+}
+a{
+  text-decoration: none;
+  display: block;
+}
+@import "header.scss";
+.contenido{
+  display: grid;
+  grid-template-columns: 20% auto;
+  grid-gap: 10px;
+  .submenu{
+    background: $azul;
+    position: relative;
+    box-shadow: 2px 0 2px darken($gris, 50);
+    .links{
+      position: fixed;
+      top: 38px;
+      left: 1.5%;
+      list-style: none;
+      font-family: $titulo;
+      width: 15%;
+        a{
+          margin: 10px;
+          text-transform: uppercase;
+          font-size: 1em;
+          color: #ccc;
+          width: 100%;
+          border-bottom: 1px solid rgba(#fff, .5);
+          &.active{
+            background: $gris;
+            color: #333;
+          }
+        }
+    }
+  }
+  .productos{
+    margin: 0 10px 0 0;
+    .item{
+      padding: 50px 0;
+      display: none;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 15px;
+      &.active{
+        display: grid;
+      }
+      .producto{
+        background: #ddd;
+        height: 270px;
+        box-shadow: 2px 2px 5px #999;
+      }
+    }
+  }
+}
+@import "footer.scss";

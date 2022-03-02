@@ -1,0 +1,117 @@
+$azul:#3e6dae;
+$amarillo:#f9ec0f;
+$gris:#eee;
+$titulo:'Titillium Web', sans-serif;;
+$cuerpo:'Roboto', sans-serif;
+//reseteos generales
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background: #fff;
+  max-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: $cuerpo;
+  font-weight: 300;
+  overflow-x: hidden;
+  color: #333;
+}
+main{
+  width: 100%;
+}
+a{
+  text-decoration: none;
+  display: block;
+}
+@import "header.scss";
+.contenido{
+  display: grid;
+  grid-template-rows: 60% 40%;
+  height: calc(100vh - 40px);
+  margin-top: 40px;
+  .producto{
+    padding: 25px;
+    background: #888;
+    display: grid;
+    grid-template-columns: 40% auto;
+    grid-gap: 50px;
+    .imagen{
+      background: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 2px;
+      img{
+        width: 90%;
+      }
+    }
+    .info{
+      line-height: 1.7;
+      .precio{
+        margin-top: 50px;
+        width: 40%;
+        span, p{
+          color: $gris;
+          font-size: 1.3em;
+          font-weight: bold;
+          font-family: $titulo;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+          line-height: 2;
+        }
+        select{
+          border: none;
+          background: $azul;
+          padding: 10px 20px;
+          option{
+            background: $gris;
+          }
+        }
+        #precio{
+          color: darken($amarillo, 10);
+          font-size: 2em;
+        }
+        input{
+          padding: 5px 8px;
+          border: none;
+          background: $azul;
+          text-transform: uppercase;
+          border-radius: 2px;
+          color: $amarillo;
+          letter-spacing: 3px;
+          font-family: $titulo;
+          font-size: 1.2em;
+          transition: .3s;
+          &:hover{
+            background: #333;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+  }
+  .otros{
+    padding: 20px 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    .productos{
+      background: $gris;
+      padding: 10px;
+      font-size: .9em;
+      color: #333;
+      img{
+        width: 200px;
+        height: 100px;
+         margin-left: 50%;
+         transform: translate(-50%, 0);
+         margin-bottom: 10px;
+      }
+    }
+  }
+}
+@import "footer.scss";

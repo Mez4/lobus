@@ -1,0 +1,260 @@
+$azul:#3e6dae;
+$amarillo:#f9ec0f;
+$gris:#eee;
+$titulo:'Titillium Web', sans-serif;;
+$cuerpo:'Roboto', sans-serif;
+//reseteos generales
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background: #fff;
+  max-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: $cuerpo;
+  font-weight: 300;
+  overflow-x: hidden;
+  color: #333;
+}
+main{
+  width: 100%;
+}
+a{
+  text-decoration: none;
+  display: block;
+}
+//el header esta en un archivo externo
+@import "header.scss";
+//banner
+.banner{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100vh;
+  padding: 10px;
+  .logo{
+    width: auto;
+    height: 70%;
+    margin: auto;
+  }
+  .titulo{
+    font-family: $titulo;
+    font-weight: 600;
+    letter-spacing: 15px;
+    font-size: 3em;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    text-shadow:1px 1px $azul,
+                2px 2px $azul,
+                3px 3px $amarillo,
+                4px 4px $amarillo;
+  }
+  .slogan{
+    text-transform: uppercase;
+    font-family: $titulo;
+    font-weight: 600;
+    width: 70%;
+    text-align: center;
+    letter-spacing: 8px;
+  }
+}
+//seccion de bienvenido
+.nosotros{
+  background: $amarillo;
+  padding: 50px;
+  height: 100vh;
+  .titulo{
+    color: $gris;
+    text-shadow:  1px 1px #333,
+                  2px 2px #333;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-align: center;
+    font-size: 3em;
+  }
+  p{
+    width: 70%;
+    margin: 10px auto;
+    line-height: 1.5;
+    text-align: justify;
+    span{
+      font-weight: 400;
+      font-size: 1.2em;
+    }
+  }
+  .hexagonos{
+    width: 70%;
+    margin:  30px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .hexagono{
+      padding-top: 20px;
+      margin: 10px;
+      width: 190px;  // altura y anchura "igual" para ser un cuadrado
+      height: 200px;
+      background: #333;
+      -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      justify-content: center;
+      .icono{
+        width: auto;
+        height: 50%;
+        margin: auto;
+      }
+      .valor{
+        width: 100%;
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+      }
+    }
+    .linea2{
+      display: flex;
+      justify-content: center;
+      position: relative;
+      top: -56px;
+    }
+  }
+}
+//seccion de productos
+.productos{
+  padding: 50px;
+  height: 100vh;
+  .titulo{
+    width: 90%;
+    margin: 30px auto;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 400;
+    color: $amarillo;
+    span{
+      color: $azul;
+      font-weight: bold;
+    }
+    p{
+      font-size: .5em;
+      letter-spacing: 15px;
+      color: $azul;
+    }
+  }
+  .links{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 15px 80px;
+    margin-bottom: 30px;
+    a{
+      color: steelblue;
+      line-height: 2;
+      display: grid;
+      grid-template-columns: 30px auto;
+      border-bottom: 1px solid tomato;
+      transition: .5s;
+      background: linear-gradient(#fff, #fff);
+      &.active{
+        color:#fff;
+        background: linear-gradient(to right, tomato, #fff);
+        border-bottom-color: #fff;
+        letter-spacing: 2px;
+        .icn-vineta{
+          color: yellow;
+        }
+      }
+      .icn-vineta{
+        transition: .8s;
+        color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+  }
+  .productos_content{
+    position: relative;
+    .item{
+      padding: 15px;
+      height: 300px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-attachment: fixed;
+      background-size: cover;
+      display: none;
+      transition: .4s;
+      &.active{
+        display: block;
+      }
+      .info{
+        background: rgba(0, 0, 0, .7);
+        width: 40%;
+        height: 100%;
+        padding: 10px;
+        color: #fff;
+        .titulo_producto{
+          font-family: $titulo;
+          text-transform: uppercase;
+          font-size: 2em;
+          font-weight: 600;
+        }
+        .descripcion{
+          line-height: 1.5;
+          font-size: .8em;
+        }
+        .ver{
+          color: #333;
+          background: #eee;
+          width: 30%;
+          line-height: 2;
+          text-align: center;
+          margin: 10px;
+          border-radius: 5px;
+          transition: .3s;
+          &:hover{
+            background: #777;
+            color: #ddd;
+          }
+        }
+      }
+    }
+    #producto1{
+      background-image: url(../img/productos/producto1.jpeg);
+    }
+    #producto2{
+      background-image: url(../img/productos/producto2.jpeg);
+    }
+    #producto3{
+      background-image: url(../img/productos/producto3.jpg);
+    }
+    #producto4{
+      background-image: url(../img/productos/producto4.jpeg);
+    }
+    #producto5{
+      background-image: url(../img/productos/producto5.jpeg);
+    }
+    #producto6{
+      background-image: url(../img/productos/producto6.jpeg);
+    }
+    #producto7{
+      background-image: url(../img/productos/producto7.jpeg);
+    }
+    #producto8{
+      background-image: url(../img/productos/producto8.jpeg);
+    }
+    #producto9{
+      background-image: url(../img/productos/producto9.jpeg);
+    }
+  }
+}
+//pie
+@import "footer.scss";
